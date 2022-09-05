@@ -30,7 +30,7 @@ import { Router, Request, Response } from "express";
   /**************************************************************************** */
 
   app.get("/filteredimage", async (req: Request, res: Response) => {
-    const image_url = req.query.image_url.tostring();
+    const image_url = req.query.image_url.toString();
     if (!image_url) res.status(400).send("image url is required");
     const filteredimage = await filterImageFromURL(image_url);
     res.status(200).sendFile(filteredimage, () => {
